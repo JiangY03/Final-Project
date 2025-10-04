@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -173,3 +178,10 @@ LOGGING = {
         },
     },
 }
+
+# AI Configuration
+AI_MODEL_NAME = os.getenv('AI_MODEL_NAME', 'mistral:7b-instruct')
+OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
+AI_MAX_TOKENS = int(os.getenv('AI_MAX_TOKENS', '1000'))
+AI_TEMPERATURE = float(os.getenv('AI_TEMPERATURE', '0.7'))
+AI_MODEL_PROVIDER = os.getenv('AI_MODEL_PROVIDER', 'ollama')
