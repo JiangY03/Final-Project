@@ -12,6 +12,7 @@ urlpatterns = [
   path('assessment/submit', views.assessment_submit),
   path('assessment/last', views.assessment_last),
   path('chat', views.chat),
+  path('chat/history', views.chat_history),
 ]
 
 
